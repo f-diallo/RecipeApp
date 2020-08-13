@@ -1,27 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import Recipe from "./Recipe";
+import Recipe from "./Recipe"; 
 import './App.css';
+import { useCallback } from 'react';
 
 const App = () => {
 
-  const APP_ID = 'e6e55f9c';
-  const APP_KEY = 'b9fc404778c38639b5e6a917cf57cc3e';
-
-
+  
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState('chicken');
 
-  useEffect(() => {
-    getRecipes();
-  }, [query]);
 
-  const getRecipes = async () => {
+  const getRecipes = useCallback( async () => {
+    const APP_ID = process.env.REACT_APP_ID;
+    const APP_KEY = process.env.REACT_APP_KEY;
+    
     const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
     const data = await response.json();
     setRecipes(data.hits);
     console.log(data.hits);
-  };
+  }, [query])
+  
+
+  useEffect(() => {
+    getRecipes();
+  }, [getRecipes]);
+
+
 
   const updateSearch = e => {
     setSearch(e.target.value);
@@ -49,7 +54,7 @@ const App = () => {
             calories={recipe.recipe.calories}
             image={recipe.recipe.image}
             directions={recipe.recipe.url}
-            ingredients={recipe.recipe.ingredients}
+            ingredients={recipe.recipe.ingredientLines}
           />
         ))}
       </div>
