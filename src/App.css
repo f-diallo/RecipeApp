@@ -1,0 +1,41 @@
+.App{
+  min-height: 100vh;
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  /* website for gradient: https://webgradients.com/ */
+}
+
+.search-form{
+  min-height:10vh;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.search-bar{
+  width: 50%;
+  border: none;
+  padding: 10px;
+  font-size: 30px;
+}
+
+.search-button{
+  background: lightsalmon;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+}
+
+.recipes{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+
+.Title{
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin-top: initial;
+}
