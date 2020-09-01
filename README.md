@@ -1,3 +1,15 @@
+
+# RecipeApp
+
+* This is a React app implemented with recipe data from Edamame API.
+* I made this app to develop my frontend and UI skills.
+* RecipeApp provides users recipes related to their search.
+
+## Guide to RecipeApp
+<img src="/gif/home.gif" width="850" alt="Gif of App">
+
+# Setup
+---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
